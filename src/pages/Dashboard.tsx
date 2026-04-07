@@ -21,10 +21,10 @@ function Dashboard() {
       <h2>Dashboard</h2>
 
       <section className="stats-grid">
-        <StatCard label="Active Shipments" value={0} color="#3b82f6" />
-        <StatCard label="In Transit" value={0} color="#f59e0b" />
-        <StatCard label="Delivered" value={0} color="#22c55e" />
-        <StatCard label="Delayed" value={0} color="#ef4444" />
+        <StatCard label="Shipments" value={0} color="#3b82f6" />
+        <StatCard label="Shipping Units" value={0} color="#f59e0b" />
+        <StatCard label="Trucks" value={0} color="#22c55e" />
+        <StatCard label="Drivers" value={0} color="#8b5cf6" />
       </section>
 
       <section className="recent-section">
