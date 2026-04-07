@@ -1,0 +1,55 @@
+.routes-page {
+  padding: 2rem 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.routes-page h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+}
+
+.routes-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.routes-table th,
+.routes-table td {
+  padding: 0.7rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.routes-table th {
+  background: #f8fafc;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.routes-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.shipment-count {
+  display: inline-block;
+  min-width: 1.5rem;
+  text-align: center;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #e2e8f0;
+  color: #64748b;
+}
+
+.shipment-count.has-shipments {
+  background: #dbeafe;
+  color: #1d4ed8;
+}

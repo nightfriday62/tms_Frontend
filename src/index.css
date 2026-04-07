@@ -1,0 +1,14 @@
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-content {
+  flex: 1;
+  background: #f1f5f9;
+}
+
+.page {
+  box-sizing: border-box;
+}
