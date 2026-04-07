@@ -6,11 +6,12 @@ function Header() {
     <header className="header">
       <div className="header-brand">
         <Link to="/">TMS</Link>
-        <span className="header-subtitle">Task Management System</span>
+        <span className="header-subtitle">Transportation Management System</span>
       </div>
       <nav className="header-nav">
         <Link to="/dashboard">Dashboard</Link>
-        <Link to="/tasks">Tasks</Link>
+        <Link to="/shipments">Shipments</Link>
+        <Link to="/routes">Routes</Link>
         <Link to="/settings">Settings</Link>
       </nav>
     </header>
