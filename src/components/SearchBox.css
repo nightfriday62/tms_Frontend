@@ -1,0 +1,14 @@
+.search-box {
+  display: flex;
+  justify-content: center;  /* horizontal */
+  align-items: center;    /* vertical */
+}
+.search-box input {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 999px;          /* fully rounded */
+    border: 1px solid #dfe1e5;
+    font-size: 16px;
+    outline: none;
+    transition: box-shadow 0.2s ease, border 0.2s ease;
+}

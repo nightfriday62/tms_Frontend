@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import Shipments from './pages/Shipments';
 import RoutesPage from './pages/Routes';
 import Settings from './pages/Settings';
+import ShippingUnits from './pages/ShippingUnits';
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/shipments" element={<Shipments />} />
             <Route path="/routes" element={<RoutesPage />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/shipping-units" element={<ShippingUnits />} />
           </Routes>
         </div>
         <Footer />

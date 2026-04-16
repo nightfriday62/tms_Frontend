@@ -12,6 +12,7 @@ function Header() {
         <Link to="/dashboard">Dashboard</Link>
         <Link to="/shipments">Shipments</Link>
         <Link to="/routes">Routes</Link>
+        <Link to="/shipping-units">Shipping Units</Link>
         <Link to="/settings">Settings</Link>
       </nav>
     </header>
