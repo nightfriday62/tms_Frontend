@@ -1,4 +1,4 @@
-
+import {Table as TableUI} from "@/components/ui/table";
 export default function Table() {
   const data = [
     { id: 1, name: "Item 1", description: "Description for Item 1" },
