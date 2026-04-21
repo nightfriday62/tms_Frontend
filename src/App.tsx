@@ -8,6 +8,7 @@ import RoutesPage from './pages/Routes';
 import Settings from './pages/Settings';
 import ShippingUnits from './pages/ShippingUnits';
 import './App.css';
+import DemoPage from './components/table/page';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/routes" element={<RoutesPage />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/shipping-units" element={<ShippingUnits />} />
+            <Route path="/table" element={<DemoPage />} />
           </Routes>
         </div>
         <Footer />
