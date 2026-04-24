@@ -1,3 +1,5 @@
+import Inputs from "../ShippingUnit/inputs";
+import { PopupInput } from "../ShippingUnit/PopupInput";
 import { columns } from "./columns_demo";
 import type { Payment } from "./columns_demo";
 import { DataTable } from "./data-table";
@@ -24,7 +26,8 @@ export default function DemoPage() {
     const data = getData();
     return (
         <div className="container mx-auto py-10">
-            <DataTable columns={columns} data={data} />
+            <PopupInput />
+            <Inputs />
         </div>
     );
 }
