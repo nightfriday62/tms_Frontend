@@ -1,5 +1,6 @@
 import SearchBox from "../components/SearchBox";
 import Table from "../components/Table";
+import { Toaster } from "@/components/ui/sonner";
 
 function ShippingUnits() {
   const handleSearch = (query: string) => {
@@ -12,6 +13,7 @@ function ShippingUnits() {
       <SearchBox onSearch={handleSearch} />
       <Table />
       <p>This page will display the shipping units information.</p>
+      <Toaster />
     </div>
   );
 }

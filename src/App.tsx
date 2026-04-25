@@ -9,6 +9,7 @@ import Settings from './pages/Settings';
 import ShippingUnits from './pages/ShippingUnits';
 import './App.css';
 import DemoPage from './components/table/page';
+import { Toaster } from 'sonner';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           </Routes>
         </div>
         <Footer />
+        <Toaster />
       </div>
     </BrowserRouter>
   );

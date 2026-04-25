@@ -9,21 +9,19 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Inputs from "./inputs";
 
 export function PopupInput() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button variant="outline">Share</Button>
+                <Button variant="outline">Create</Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
                 <DialogHeader>
-                    <DialogTitle>Share link</DialogTitle>
+                    <DialogTitle>Create Item</DialogTitle>
                     <DialogDescription>
-                        Anyone who has this link will be able to view this.
+                        Fill in the details to create a new item.
                     </DialogDescription>
                 </DialogHeader>
                 {/* <div className="flex items-center gap-2">

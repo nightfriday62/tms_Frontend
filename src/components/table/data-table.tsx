@@ -11,6 +11,8 @@ import {
 
 import { Button } from "../ui/button";
 import { Input } from "@/components/ui/input";
+import { PopupInput } from "../ShippingUnit/PopupInput";
+
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
@@ -150,13 +152,7 @@ export function DataTable<TData, TValue>({
         >
           Next
         </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => {/* Add your create new logic here */ }}
-        >
-          Create New
-        </Button>
+        <PopupInput />
       </div>
 
 
