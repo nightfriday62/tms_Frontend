@@ -1,8 +1,6 @@
 import Inputs from "../ShippingUnit/inputs";
 import { PopupInput } from "../ShippingUnit/PopupInput";
-import { columns } from "./columns_demo";
 import type { Payment } from "./columns_demo";
-import { DataTable } from "./data-table";
 
 function getData(): Payment[] {
     return [
