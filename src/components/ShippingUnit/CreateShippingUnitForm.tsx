@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 import type { ShippingUnitRequest } from "@/types/shippingUnit.type";
 import { toast } from "sonner";
 
-export default function Inputs() {
+export default function CreateShippingUnitForm() {
     const [description, setDescription] = useState('');
     const [height, setHeight] = useState("");
     const [width, setWidth] = useState("");

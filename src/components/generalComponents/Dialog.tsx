@@ -9,9 +9,14 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-import Inputs from "./inputs";
 
-export function PopupInput() {
+interface PopupInputProps {
+    dialogTitle?: string;
+    dialogDescription?: string;
+    children?: React.ReactNode;
+}
+
+export function DialogPopup({ dialogTitle, dialogDescription, children }: PopupInputProps) {
     return (
         <Dialog>
             <DialogTrigger asChild>
@@ -19,24 +24,12 @@ export function PopupInput() {
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
                 <DialogHeader>
-                    <DialogTitle>Create Item</DialogTitle>
+                    <DialogTitle>{dialogTitle}</DialogTitle>
                     <DialogDescription>
-                        Fill in the details to create a new item.
+                        {dialogDescription}
                     </DialogDescription>
                 </DialogHeader>
-                {/* <div className="flex items-center gap-2">
-                    <div className="grid flex-1 gap-2">
-                        <Label htmlFor="link" className="sr-only">
-                            Link
-                        </Label>
-                        <Input
-                            id="link"
-                            defaultValue="https://ui.shadcn.com/docs/installation"
-                            readOnly
-                        />
-                    </div>
-                </div> */}
-                <Inputs />
+                {children}
                 <DialogFooter className="sm:justify-start">
                     <DialogClose asChild>
                         <Button type="button">Close</Button>

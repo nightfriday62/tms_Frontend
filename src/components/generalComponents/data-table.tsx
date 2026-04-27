@@ -11,7 +11,8 @@ import {
 
 import { Button } from "../ui/button";
 import { Input } from "@/components/ui/input";
-import { PopupInput } from "../ShippingUnit/PopupInput";
+import { DialogPopup } from "./Dialog";
+import CreateShippingUnitForm from "../ShippingUnit/CreateShippingUnitForm";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -152,7 +153,7 @@ export function DataTable<TData, TValue>({
         >
           Next
         </Button>
-        <PopupInput />
+        <DialogPopup dialogTitle="Create Shipping Unit" dialogDescription="Fill in the details to create a new shipping unit."><CreateShippingUnitForm /></DialogPopup>
       </div>
 
 

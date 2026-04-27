@@ -12,7 +12,6 @@ function ShippingUnits() {
       <h1 style={{ fontSize: '8rem', color: '#3b82f6' }}>Shipping Units</h1>
       <SearchBox onSearch={handleSearch} />
       <Table />
-      <p>This page will display the shipping units information.</p>
       <Toaster />
     </div>
   );
