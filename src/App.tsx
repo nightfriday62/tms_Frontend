@@ -9,6 +9,7 @@ import Settings from './pages/Settings';
 import ShippingUnits from './pages/ShippingUnits';
 import './App.css';
 import { Toaster } from 'sonner';
+import Truck from '@/pages/Truck';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/routes" element={<RoutesPage />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/shipping-units" element={<ShippingUnits />} />
+            <Route path="/trucks" element={<Truck />} />
           </Routes>
         </div>
         <Footer />

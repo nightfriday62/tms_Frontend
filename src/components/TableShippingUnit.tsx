@@ -7,7 +7,6 @@ export default function Table() {
     { id: 2, name: "Item 2", description: "Description for Item 2" },
     { id: 3, name: "Item 3", description: "Description for Item 3" },
   ];
-  const columns = Object.keys(data[0]) as Array<keyof typeof data[0]>;
   return (
     <div className="flex justify-center" >
       <DataTable columns={createColumns(data[0])} data={data} />
