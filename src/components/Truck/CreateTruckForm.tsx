@@ -12,6 +12,8 @@ import {
     SelectTrigger,
     SelectValue,
 } from "../ui/select";
+import { VITE_API_BASE_URL } from "@/config";
+import { toast } from "sonner";
 
 type CreateTruckForm = z.infer<typeof createTruckSchema>;
 
@@ -28,7 +30,7 @@ const createTruckSchema = z.object({
     weight: z.number().optional(),
     trailerType: z.enum(trailerTypes).optional(),
     trailerPlateNumber: z.string().optional(),
-    shipments: z.array(z.string()).min(1, "At least one shipment is required").optional(),
+    shipments: z.array(z.string()).nullable().optional(),
 });
 const genSelectItems = (dict: Record<string, string>) => {
     return Object.keys(dict).map((key) => (
@@ -40,9 +42,27 @@ const genSelectItems = (dict: Record<string, string>) => {
 
 export default function CreateTruckForm() {
 
-    const onSubmit = (data: CreateTruckForm) => {
-        console.log("Form Data:", data);
-        // Here you would typically send the data to your backend API
+    const onSubmit = async (data: CreateTruckForm) => {
+
+        try {
+            console.log("Submitting data:", data);
+            const response = await fetch(`${VITE_API_BASE_URL}/trucks`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+            if (response.ok) {
+                toast.success("Truck created successfully!", { position: "top-center" });
+            } else {
+                const errorMessage = await response.text();
+                toast.error("Failed to create truck. " + errorMessage, { position: "top-center" });
+            }
+        } catch (error) {
+            toast.error("An unexpected error occurred. Please try again.", { position: "top-center" });
+        }
+
     };
     const form = useForm<CreateTruckForm>({
         resolver: zodResolver(createTruckSchema),
@@ -56,7 +76,7 @@ export default function CreateTruckForm() {
             weight: 0,
             trailerType: "NOTSPECIFIED",
             trailerPlateNumber: "",
-            shipments: [],
+            shipments: null,
         },
     });
 
@@ -66,7 +86,7 @@ export default function CreateTruckForm() {
                 <Controller name="plateNumber" control={form.control} render={({ field, fieldState }) => (
                     <Field data-invalid={fieldState.invalid}>
                         <FieldLabel>Plate Number</FieldLabel>
-                        <Input placeholder="Plate Number" {...field} />
+                        <Input placeholder="Required" {...field} />
                         {fieldState.error && <p className="text-red-500">{fieldState.error.message}</p>}
                     </Field>
                 )} />
@@ -91,28 +111,28 @@ export default function CreateTruckForm() {
                 <Controller name="brand" control={form.control} render={({ field, fieldState }) => (
                     <Field data-invalid={fieldState.invalid}>
                         <FieldLabel>Brand</FieldLabel>
-                        <Input placeholder="Brand" {...field} />
+                        <Input placeholder="Optional" {...field} />
                         {fieldState.error && <p className="text-red-500">{fieldState.error.message}</p>}
                     </Field>
                 )} />
                 <Controller name="model" control={form.control} render={({ field, fieldState }) => (
                     <Field data-invalid={fieldState.invalid}>
                         <FieldLabel>Model</FieldLabel>
-                        <Input placeholder="Model" {...field} />
+                        <Input placeholder="Optional" {...field} />
                         {fieldState.error && <p className="text-red-500">{fieldState.error.message}</p>}
                     </Field>
                 )} />
                 <Controller name="volume" control={form.control} render={({ field, fieldState }) => (
                     <Field data-invalid={fieldState.invalid}>
                         <FieldLabel>Volume (m³)</FieldLabel>
-                        <Input placeholder="Volume" type="number" step="0.01" onChange={(e) => field.onChange(parseFloat(e.target.value))} value={field.value} />
+                        <Input placeholder="Optional" type="number" step="0.01" onChange={(e) => field.onChange(parseFloat(e.target.value))} value={field.value} />
                         {fieldState.error && <FieldError className="text-red-500" aria-errormessage={fieldState.error.message}></FieldError>}
                     </Field>
                 )} />
                 <Controller name="weight" control={form.control} render={({ field, fieldState }) => (
                     <Field data-invalid={fieldState.invalid}>
                         <FieldLabel>Weight (tons)</FieldLabel>
-                        <Input placeholder="Weight" type="number" step="0.01" onChange={(e) => field.onChange(parseFloat(e.target.value))} value={field.value} />
+                        <Input placeholder="Optional" type="number" step="0.01" onChange={(e) => field.onChange(parseFloat(e.target.value))} value={field.value} />
                         {fieldState.error && (<FieldError className="text-red-500">{fieldState.error.message}</FieldError>)}
                     </Field>
                 )} />
@@ -137,14 +157,17 @@ export default function CreateTruckForm() {
                 <Controller name="trailerPlateNumber" control={form.control} render={({ field, fieldState }) => (
                     <Field data-invalid={fieldState.invalid}>
                         <FieldLabel>Trailer Plate Number</FieldLabel>
-                        <Input placeholder="Trailer Plate Number" {...field} />
+                        <Input placeholder="Optional" {...field} />
                         {fieldState.error && <FieldError className="text-red-500">{fieldState.error.message}</FieldError>}
                     </Field>
                 )} />
                 <Controller name="shipments" control={form.control} render={({ field, fieldState }) => (
                     <Field data-invalid={fieldState.invalid}>
                         <FieldLabel>Shipments</FieldLabel>
-                        <Input placeholder="Shipments" {...field} />
+                        <Input placeholder="Optional" {...field} value={field.value ? field.value.join(',') : ''} onChange={(e) => {
+                            const filtered = e.target.value.split(',').filter(item => item.trim() !== '');
+                            field.onChange(filtered.length > 0 ? filtered : null);
+                        }} />
                         {fieldState.error && <FieldError className="text-red-500">{fieldState.error.message}</FieldError>}
                     </Field>
                 )} />

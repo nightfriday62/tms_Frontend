@@ -3,14 +3,14 @@ import SearchBox from "../components/SearchBox";
 
 
 
-function ShippingUnits() {
+function Trucks() {
   const handleSearch = (query: string) => {
     console.log("Search query:", query);
   };
 
   return (
     <div>
-      <h1 style={{ fontSize: '8rem', color: '#3b82f6', textAlign: 'center' }}>Shipping Units</h1>
+      <h1 style={{ fontSize: '8rem', color: '#3b82f6', textAlign: 'center' }}>Trucks</h1>
       <SearchBox onSearch={handleSearch} />
       <TruckTable />
 
@@ -18,4 +18,4 @@ function ShippingUnits() {
   );
 }
 
-export default ShippingUnits;
+export default Trucks;
